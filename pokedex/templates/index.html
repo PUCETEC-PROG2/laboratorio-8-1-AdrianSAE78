@@ -2,6 +2,7 @@
 {% block title %}POKEDEX{% endblock title %}
 {% block content %}
     <p class="p-2">Bienvenido a tu pokedex</p>
+    <a href="{% url 'logout' %}" class="btn btn-warning text-dark mb-3">Salir</a>
     <a href="{% url 'pokedex:add_pokemon' %}" class="btn btn-warning text-dark mb-3">Crear Pokemon</a>
     <div class="card-group">
         {% for pokemon in pokemons %}
