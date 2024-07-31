@@ -4,8 +4,9 @@ from django.db import models
 class Trainer(models.Model):
     name = models.CharField(max_length=30, null=False)
     last_name = models.CharField(max_length=30, null=False)
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=False)
     level = models.IntegerField(default=1)
+    picture = models.ImageField(upload_to='trainer_images')
     
     def __str__(self) -> str:
         return f'{self.name} {self.last_name}'

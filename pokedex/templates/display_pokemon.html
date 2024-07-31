@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block title %}{{ pokemon }}{% endblock title %}
 {% block content %}
-    <p class="py-4">Has elegido el pokemon: <strong>{{ pokemon | capfirst }}</strong></p>
-    <h3>Características:</h3>
-    <ul>
-        <li>Tipo: {{ pokemon.type }}</li>
-        <li>Peso: {{ pokemon.weight }} kg.</li>
-        <li>Altura: {{ pokemon.height }} cm.</li>
-    </ul>
+    <h5 class="py-4">Has elegido el pokemon: <strong>{{ pokemon | capfirst }}</strong></h5>
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card bg-primary">
+                <div class="card-body">
+                    <h5 class="mb-3 text-dark">Características:</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-primary text-dark">Tipo: {{ pokemon.get_type_display }}</li>
+                        <li class="list-group-item list-group-item-primary text-dark">Peso: {{ pokemon.weight }} kg.</li>
+                        <li class="list-group-item list-group-item-primary text-dark">Altura: {{ pokemon.height }} cm.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+                    <img src="{{ pokemon.picture.url }}" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock content %}
